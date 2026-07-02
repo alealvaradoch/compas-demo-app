@@ -29,7 +29,6 @@ import {
 } from '@phosphor-icons/react'
 import {
   AppShell,
-  AuroraBackground,
   Avatar,
   Badge,
   BottomSheet,
@@ -203,8 +202,12 @@ function LoginPage({ onLogin }) {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <AuroraBackground className="items-center justify-center">
-      <section className="relative mx-auto flex min-h-svh w-full items-center justify-center px-5 py-8 sm:px-8">
+    <main className="login-pwa-shell min-h-[100dvh]">
+      <div aria-hidden="true" className="login-pwa-aurora">
+        <div className="login-pwa-aurora-motion" />
+      </div>
+
+      <section className="login-pwa-content sm:px-8">
         <motion.div
           animate={{ y: 0 }}
           className="relative w-full max-w-[520px]"
@@ -215,6 +218,7 @@ function LoginPage({ onLogin }) {
           <div className="pointer-events-none absolute -bottom-18 -left-20 h-[430px] w-[430px] rounded-full bg-[#F6A11A]/35 blur-[160px]" />
           <div className="pointer-events-none absolute -left-16 top-[18%] h-[460px] w-[380px] rounded-full bg-[#0B2B6F]/25 blur-[180px]" />
           <div className="pointer-events-none absolute left-1/2 top-[40%] h-[340px] w-[440px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFF7ED]/45 blur-[140px]" />
+
           <GlassPanel className="p-8 sm:p-12">
             <form
               className="relative z-10 space-y-8"
@@ -262,7 +266,7 @@ function LoginPage({ onLogin }) {
           </GlassPanel>
         </motion.div>
       </section>
-    </AuroraBackground>
+    </main>
   )
 }
 

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PWA Test</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#06185A" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PWA Test" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+        background: #06185A;
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: hidden;
+      }
+
+      .screen {
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at 80% 10%, rgba(6, 24, 90, 0.85), transparent 35%),
+          radial-gradient(circle at 10% 80%, rgba(246, 161, 26, 0.45), transparent 40%),
+          linear-gradient(135deg, #fff7ed 0%, #f7f8ff 36%, #eef2ff 66%, #fff3dc 100%);
+      }
+
+      .card {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        top: 35%;
+        height: 260px;
+        border-radius: 36px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="screen">
+      <div class="card"></div>
+    </div>
+  </body>
+</html>

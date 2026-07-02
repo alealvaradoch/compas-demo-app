@@ -1,4 +1,4 @@
-const CACHE_NAME = 'compas-demo-pwa-v1'
+const CACHE_NAME = 'compas-demo-pwa-v2'
 const APP_SHELL = [
   '/',
   '/manifest.json',
@@ -34,18 +34,32 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const responseClone = response.clone()
+          caches.open(CACHE_NAME).then((cache) => cache.put('/', responseClone))
+          return response
+        })
+        .catch(() => caches.match(event.request).then((cachedResponse) => cachedResponse || caches.match('/'))),
+    )
+    return
+  }
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
         return cachedResponse
       }
 
-      return fetch(event.request).catch(() => {
-        if (event.request.mode === 'navigate') {
-          return caches.match('/')
+      return fetch(event.request).then((response) => {
+        if (response.ok) {
+          const responseClone = response.clone()
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone))
         }
 
-        return Response.error()
+        return response
       })
     }),
   )
