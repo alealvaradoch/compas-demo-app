@@ -53,7 +53,7 @@ import {
   Toast,
 } from './components/ui'
 import GlassPanel from './components/ui/GlassPanel'
-import logo from './assets/logo.png'
+import compasOperativoIcon from './assets/compas-operativo-icon.svg'
 import { buildDemoData, industryOptions } from './data/mockData'
 
 const moneyFormatter = new Intl.NumberFormat('es-GT', {
@@ -226,10 +226,10 @@ function LoginPage({ onLogin }) {
               <div className="flex justify-center pb-3 pt-2">
                 <motion.img
                   animate={{ opacity: 1, y: 0 }}
-                  alt="Compás Demo"
+                  alt="Compás Operativo"
                   className="h-14 w-auto max-w-[156px] drop-shadow-[0_16px_28px_rgb(6_22_74/0.13)] sm:h-16 sm:max-w-[176px]"
                   initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
-                  src={logo}
+                  src={compasOperativoIcon}
                   transition={{ delay: 0.06, duration: 0.36, ease: 'easeOut' }}
                 />
               </div>
